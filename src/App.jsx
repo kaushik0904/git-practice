@@ -149,29 +149,29 @@ function App() {
         </div>
 
         <div className="keypad">
-          <button className="clear" onClick={handleClear}>AC</button>
-          <button onClick={handleToggleSign}>+/-</button>
-          <button onClick={handlePercentage}>%</button>
-          <button className="operator" onClick={() => handleOperator('÷')}>÷</button>
+          <button className="clear" onClick={handleClear} style={{ '--active-color': '#f43f5e' }}>AC</button>
+          <button onClick={handleToggleSign} style={{ '--active-color': '#a855f7' }}>+/-</button>
+          <button onClick={handlePercentage} style={{ '--active-color': '#06b6d4' }}>%</button>
+          <button className="operator" onClick={() => handleOperator('÷')} style={{ '--active-color': '#d946ef' }}>÷</button>
 
-          <button onClick={() => handleNum('7')}>7</button>
-          <button onClick={() => handleNum('8')}>8</button>
-          <button onClick={() => handleNum('9')}>9</button>
-          <button className="operator" onClick={() => handleOperator('×')}>×</button>
+          <button onClick={() => handleNum('7')} style={{ '--active-color': '#3b82f6' }}>7</button>
+          <button onClick={() => handleNum('8')} style={{ '--active-color': '#0ea5e9' }}>8</button>
+          <button onClick={() => handleNum('9')} style={{ '--active-color': '#06b6d4' }}>9</button>
+          <button className="operator" onClick={() => handleOperator('×')} style={{ '--active-color': '#ec4899' }}>×</button>
 
-          <button onClick={() => handleNum('4')}>4</button>
-          <button onClick={() => handleNum('5')}>5</button>
-          <button onClick={() => handleNum('6')}>6</button>
-          <button className="operator" onClick={() => handleOperator('-')}>-</button>
+          <button onClick={() => handleNum('4')} style={{ '--active-color': '#6366f1' }}>4</button>
+          <button onClick={() => handleNum('5')} style={{ '--active-color': '#8b5cf6' }}>5</button>
+          <button onClick={() => handleNum('6')} style={{ '--active-color': '#a855f7' }}>6</button>
+          <button className="operator" onClick={() => handleOperator('-')} style={{ '--active-color': '#f97316' }}>-</button>
 
-          <button onClick={() => handleNum('1')}>1</button>
-          <button onClick={() => handleNum('2')}>2</button>
-          <button onClick={() => handleNum('3')}>3</button>
-          <button className="operator" onClick={() => handleOperator('+')}>+</button>
+          <button onClick={() => handleNum('1')} style={{ '--active-color': '#10b981' }}>1</button>
+          <button onClick={() => handleNum('2')} style={{ '--active-color': '#14b8a6' }}>2</button>
+          <button onClick={() => handleNum('3')} style={{ '--active-color': '#06b6d4' }}>3</button>
+          <button className="operator" onClick={() => handleOperator('+')} style={{ '--active-color': '#eab308' }}>+</button>
 
-          <button className="zero" onClick={() => handleNum('0')}>0</button>
-          <button onClick={handleDecimal}>.</button>
-          <button className="equals" onClick={handleEquals}>=</button>
+          <button className="zero" onClick={() => handleNum('0')} style={{ '--active-color': '#64748b' }}>0</button>
+          <button onClick={handleDecimal} style={{ '--active-color': '#94a3b8' }}>.</button>
+          <button className="equals" onClick={handleEquals} style={{ '--active-color': '#22c55e' }}>=</button>
         </div>
       </div>
     </>
