@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #0f172a;
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --primary: #818cf8;
+  --primary-hover: #6366f1;
+  --danger: #fb7185;
+  --danger-hover: #f43f5e;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --btn-bg: rgba(255, 255, 255, 0.05);
+  --btn-hover: rgba(255, 255, 255, 0.1);
+  --btn-active: rgba(255, 255, 255, 0.02);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  user-select: none;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background Animated Blobs */
+.blob {
+  position: absolute;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.5;
+  animation: float 10s infinite alternate ease-in-out;
+}
+.blob-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: #4f46e5; border-radius: 50%; animation-delay: 0s; }
+.blob-2 { bottom: -10%; right: -20%; width: 600px; height: 600px; background: #ec4899; border-radius: 50%; animation-delay: -5s; }
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, -50px) scale(1.1); }
+  100% { transform: translate(-50px, 50px) scale(0.9); }
+}
+
+/* Calculator Container */
+.calculator {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: var(--glass-shadow);
+  width: 340px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Display */
+.display-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100px;
+  padding: 10px 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  border: 1px inset var(--glass-border);
+  overflow: hidden;
+}
+
+.equation {
+  color: var(--text-muted);
+  font-size: 14px;
+  min-height: 20px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.current-value {
+  color: var(--text);
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: right;
+}
+
+/* Keypad */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+button {
+  background: var(--btn-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 400;
+  border-radius: 16px;
+  height: 64px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background: var(--btn-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  background: var(--btn-active);
+  transform: translateY(0);
+}
+
+/* Special Buttons */
+button.operator {
+  color: var(--primary);
+  background: rgba(129, 140, 248, 0.1);
+  font-weight: 500;
+  font-size: 24px;
+}
+button.operator:hover {
+  background: rgba(129, 140, 248, 0.2);
+}
+
+button.equals {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 28px;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+button.equals:hover {
+  background: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(99, 102, 241, 0.4);
+}
+
+button.clear {
+  color: var(--danger);
+  background: rgba(251, 113, 133, 0.1);
+}
+button.clear:hover {
+  background: rgba(251, 113, 133, 0.2);
+}
+
+button.zero {
+  grid-column: span 2;
+  border-radius: 16px;
+  justify-content: flex-start;
+  padding-left: 28px;
+}
